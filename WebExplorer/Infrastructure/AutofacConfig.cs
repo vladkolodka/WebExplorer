@@ -1,6 +1,8 @@
 ﻿using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using WebExplorer.Services;
+using WebExplorer.Services.Implementation;
 
 namespace WebExplorer.Infrastructure
 {
@@ -12,6 +14,8 @@ namespace WebExplorer.Infrastructure
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
+            ConfigureDependencies(builder);
+
             DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));
         }
 
@@ -19,6 +23,8 @@ namespace WebExplorer.Infrastructure
         {
             // TODO register services
             builder.RegisterType<AppDbContext>().AsSelf().InstancePerLifetimeScope();
+ 
+            builder.RegisterType<FolderService>().As<IFolderService>();
         }
     }
 }
