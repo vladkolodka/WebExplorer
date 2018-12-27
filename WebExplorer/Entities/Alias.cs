@@ -15,7 +15,6 @@ namespace WebExplorer.Entities
 
         public int FolderId { get; set; }
 
-        [Required]
-        public Folder Folder { get; set; }
+        [Required] public Folder Folder { get; set; }
     }
 }

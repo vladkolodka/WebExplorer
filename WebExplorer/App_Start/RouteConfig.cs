@@ -5,24 +5,26 @@ namespace WebExplorer
 {
     public class RouteConfig
     {
-        private const string FolderPathPattern = @"^$|^[a-z]+([a-z ])*(\/[a-z]+([a-z ])*)*\/?$";
+        private const string FolderPathPattern = @"^[a-z]+([a-z ])*(\/[a-z]+([a-z ])*)*\/?$";
 
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "FolderExplorer",
-                url: "root/{*path}",
-                defaults: new {controller = "Explorer", action = "Index"},
-                constraints: new {path = FolderPathPattern}
+                "FolderExplorer",
+                "{*path}",
+                new {controller = "Explorer", action = "Index"},
+                new {path = FolderPathPattern}
             );
 
+/*
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new {controller = "Home", action = "Index", id = UrlParameter.Optional}
             );
+*/
         }
     }
 }

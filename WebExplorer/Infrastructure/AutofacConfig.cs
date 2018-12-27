@@ -21,10 +21,10 @@ namespace WebExplorer.Infrastructure
 
         private static void ConfigureDependencies(ContainerBuilder builder)
         {
-            // TODO register services
             builder.RegisterType<AppDbContext>().AsSelf().InstancePerLifetimeScope();
- 
+
             builder.RegisterType<FolderService>().As<IFolderService>();
+            builder.RegisterType<FolderAliasService>().As<IFolderAliasService>();
         }
     }
 }

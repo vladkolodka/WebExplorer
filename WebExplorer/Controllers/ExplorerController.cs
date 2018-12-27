@@ -1,12 +1,25 @@
-﻿using System.Web.Mvc;
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
+using WebExplorer.Services;
 
 namespace WebExplorer.Controllers
 {
     public class ExplorerController : Controller
     {
-        public ActionResult Index(string path)
+        private readonly IFolderAliasService _aliasService;
+
+        public ExplorerController(IFolderAliasService aliasService)
         {
-            return Content($"Matched: {path} | {path?.Length}");
+            _aliasService = aliasService;
+        }
+
+        public async Task<ActionResult> Index(string path)
+        {
+            var folder = await _aliasService.FindByPath(path);
+
+            if (folder == null) return Content("Not found");
+
+            return Content($"Folder: {folder.Name}; {folder.Children.Count}");
         }
     }
 }

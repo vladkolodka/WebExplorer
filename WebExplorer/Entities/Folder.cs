@@ -7,8 +7,7 @@ namespace WebExplorer.Entities
     {
         public int Id { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+        [Required] public string Name { get; set; }
 
         public virtual Folder Parent { get; set; }
 

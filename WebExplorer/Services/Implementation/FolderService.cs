@@ -7,7 +7,5 @@ namespace WebExplorer.Services.Implementation
         public FolderService(AppDbContext dbContext) : base(dbContext)
         {
         }
-
-
     }
 }
