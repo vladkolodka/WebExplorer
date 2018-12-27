@@ -1,0 +1,14 @@
+﻿@model WebExplorer.Entities.Folder
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h1>@Model.Name</h1>
+
+@if (Model.Children.Any())
+{
+    foreach (var child in Model.Children)
+    {
+        <a href="/">@child.Name</a>
+    }
+}

@@ -19,7 +19,7 @@ namespace WebExplorer.Controllers
 
             if (folder == null) return Content("Not found");
 
-            return Content($"Folder: {folder.Name}; {folder.Children.Count}");
+            return View(folder);
         }
     }
 }
