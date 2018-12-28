@@ -1,14 +1,11 @@
+using System.Data.Entity;
+using WebExplorer.Entities;
+
 namespace WebExplorer.Infrastructure
 {
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-
-    public partial class AppDatabaseContext : DbContext
+    public class AppDatabaseContext : DbContext
     {
-        public AppDatabaseContext()
-            : base("name=AppDatabaseContext")
+        public AppDatabaseContext() : base("name=DefaultConnection")
         {
         }
 
