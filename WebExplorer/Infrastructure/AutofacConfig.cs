@@ -21,9 +21,8 @@ namespace WebExplorer.Infrastructure
 
         private static void ConfigureDependencies(ContainerBuilder builder)
         {
-            builder.RegisterType<AppDbContext>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<AppDatabaseContext>().AsSelf().InstancePerLifetimeScope();
 
-            builder.RegisterType<FolderService>().As<IFolderService>();
             builder.RegisterType<FolderAliasService>().As<IFolderAliasService>();
         }
     }

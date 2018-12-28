@@ -2,11 +2,11 @@
 {
     public class BaseService
     {
-        public BaseService(AppDbContext dbContext)
+        public BaseService(AppDatabaseContext dbContext)
         {
             Db = dbContext;
         }
 
-        public AppDbContext Db { get; }
+        public AppDatabaseContext Db { get; }
     }
 }

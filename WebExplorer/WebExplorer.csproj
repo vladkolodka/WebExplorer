@@ -70,11 +70,14 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -104,6 +107,7 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -117,21 +121,24 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ExplorerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\Alias.cs" />
     <Compile Include="Entities\Folder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Alias.cs" />
+    <Compile Include="Infrastructure\AppDatabaseContext.cs" />
     <Compile Include="Infrastructure\AppDbContext.cs" />
     <Compile Include="Infrastructure\AutofacConfig.cs" />
     <Compile Include="Infrastructure\BaseService.cs" />
+    <Compile Include="Infrastructure\Folder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IFolderAliasService.cs" />
-    <Compile Include="Services\IFolderService.cs" />
     <Compile Include="Services\Implementation\FolderAliasService.cs" />
-    <Compile Include="Services\Implementation\FolderService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Main.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -157,6 +164,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Explorer\Index.cshtml" />
+    <Content Include="Views\Shared\Notification.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

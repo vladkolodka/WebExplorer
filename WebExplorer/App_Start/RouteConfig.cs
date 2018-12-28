@@ -18,13 +18,11 @@ namespace WebExplorer
                 new {path = FolderPathPattern}
             );
 
-/*
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new {controller = "Home", action = "Index", id = UrlParameter.Optional}
+                name: "Main page",
+                url: "",
+                defaults: new {controller = "Home", action = "Index"}
             );
-*/
         }
     }
 }

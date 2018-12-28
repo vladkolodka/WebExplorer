@@ -15,11 +15,11 @@ namespace WebExplorer.Controllers
 
         public async Task<ActionResult> Index(string path)
         {
-            var folder = await _aliasService.FindByPath(path);
+            var folder = await _aliasService.FindByPath(path).ConfigureAwait(false);
 
-            if (folder == null) return Content("Not found");
-
-            return View(folder);
+            return folder == null
+                ? View("Notification", (object) "Path not found.")
+                : View(folder);
         }
     }
 }

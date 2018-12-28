@@ -1,14 +1,23 @@
-﻿@model WebExplorer.Entities.Folder
+﻿@model WebExplorer.Infrastructure.Folder
 @{
     ViewBag.Title = Model.Name;
 }
 
-<h1>@Model.Name</h1>
+<h1>Folder: @Model.Name</h1>
 
 @if (Model.Children.Any())
 {
-    foreach (var child in Model.Children)
-    {
-        <a href="/">@child.Name</a>
-    }
+    <ul class="child_folders">
+        @foreach (var child in Model.Children)
+        {
+            <li>
+                @Html.RouteLink(child.Name, "FolderExplorer", new {path = child.Alias.Path})
+            </li>
+        }
+
+    </ul>
+}
+else
+{
+    <p>Empty folder.</p>
 }
